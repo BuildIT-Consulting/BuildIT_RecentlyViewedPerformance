@@ -28,7 +28,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: mstachniuk/ci-skip@v1
         with:
           commit-filter: 'AutomatedRelease;Update'
@@ -69,7 +69,7 @@ jobs:
           git tag -a ${{ env.VERSION }} -m "AutomatedRelease ${{ env.CURRENTDATE }} - Version: ${{ env.VERSION }}"
           git push origin ${{ env.VERSION }}
       - name: Release
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: ${{env.EXPORT_NAME}}
           path: ${{env.EXPORT_NAME}}

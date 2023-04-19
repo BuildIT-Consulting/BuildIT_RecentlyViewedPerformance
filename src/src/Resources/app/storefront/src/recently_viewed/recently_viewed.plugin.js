@@ -19,17 +19,32 @@ export default class RecentlyViewedPlugin extends Plugin {
 		return this.storage.getItem(this.options.storageName) !== null;
 	}
 
-	addListeners() {
+	async addListeners() {
 		if (!this.isCookieAllowed()) {
 			return;
 		}
 		const productMain = document.getElementsByClassName('product-detail');
+		const waitForSrc = (timeoutms, elem) => new Promise((r, j)=>{
+			const check = () => {
+			  if(!elem.src.startsWith('data')) 
+				r()
+			  else if((timeoutms -= 100) < 0)
+				j()
+			  else
+				setTimeout(check, 100)
+			}
+			setTimeout(check, 100)
+		  })
 		if (productMain.length > 0) {
 			this.updateView();
 			const name = document.querySelector('.product-detail-name').innerText;
-			const imageURL = document.querySelector('#tns1-item0')
-				? document.querySelector('#tns1-item0 img').src
-				: document.querySelector('.product-detail-media img').src;
+			let imageURL = ""; 
+			if(document.querySelector('#tns1-item0')){
+				await waitForSrc(1500, document.querySelector('#tns1-item0 img'));
+				imageURL = document.querySelector('#tns1-item0 img').src
+			}else{
+				imageURL = document.querySelector('.product-detail-media img').src
+			}
 			const link = document.location.href;
 			let price = '';
 			if (document.querySelector('meta[itemprop="lowPrice"]')) {
