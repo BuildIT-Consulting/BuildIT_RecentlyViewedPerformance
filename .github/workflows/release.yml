@@ -55,7 +55,7 @@ jobs:
       - name: Build Plugin
         run: |
           sudo chmod -R 777 ${{ env.PWD }}/src
-          docker run --rm -e BUILD_PLUGIN=${{ env.NAME }} -v ${{ env.PWD }}/src:/var/www/html/custom/plugins/${{ env.NAME }} dockware/dev:latest
+          docker run --rm -e BUILD_PLUGIN=${{ env.NAME }} -v ${{ env.PWD }}/src:/var/www/html/custom/plugins/${{ env.NAME }} dockware/dev:6.5.2.1
       - name: get new Version
         run: echo "VERSION=$(awk '/version/{gsub(/("|",)/,"",$2);print $2};' ./src/composer.json)" >> $GITHUB_ENV
       - name: Update source
@@ -78,5 +78,4 @@ jobs:
           tag_name: ${{ env.VERSION }}
           files: |
             ${{env.EXPORT_NAME}}
-
 

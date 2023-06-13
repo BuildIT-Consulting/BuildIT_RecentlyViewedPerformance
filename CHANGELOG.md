@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.0] - 2023-06-13
+### Added 
+- Added support for Shopware 6.5
 ## [0.1.5] - 2023-04-19
 ### Fixed 
 - Fixed bug with lazyloaded images
@@ -38,6 +41,7 @@ All notable changes to this project will be documented in this file.
 
 ### Initial Release
 
+[1.0.0]: https://github.com/BuildIT-Consulting/BuildIT_RecentlyViewedPerformance/compare/0.1.5...1.0.0
 [0.1.5]: https://github.com/BuildIT-Consulting/BuildIT_RecentlyViewedPerformance/compare/0.1.4...0.1.5
 [0.1.4]: https://github.com/BuildIT-Consulting/BuildIT_RecentlyViewedPerformance/compare/0.1.3...0.1.4
 [0.1.3]: https://github.com/BuildIT-Consulting/BuildIT_RecentlyViewedPerformance/compare/0.1.2...0.1.3
