@@ -2,18 +2,28 @@
 	display: flex;
 	justify-content: space-evenly;
 	margin: 1rem 0.25rem 1.5rem 0.25rem;
+
 	.recently_viewed_wrapper {
 		max-width: 15%;
 		text-align: center;
+
 		img {
 			width: 100%;
 		}
-        p{
-            font-weight: normal;
-            font-size: 1rem;
-        }
+
+		p {
+			font-weight: normal;
+			font-size: 1rem;
+		}
 	}
 }
-.buildit_recently_viewed_tabs{
+
+.buildit_recently_viewed_tabs {
 	display: none;
+
+	.buildit_recently_viewed_card {
+		max-width: 1400px;
+		margin-right: auto;
+		margin-left: auto;
+	}
 }

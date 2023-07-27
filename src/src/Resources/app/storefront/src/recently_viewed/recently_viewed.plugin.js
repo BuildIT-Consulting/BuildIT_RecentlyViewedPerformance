@@ -24,6 +24,7 @@ export default class RecentlyViewedPlugin extends Plugin {
 			return;
 		}
 		const productMain = document.getElementsByClassName('product-detail');
+		const productMainCMS = document.querySelector('.cms-page[itemtype="https://schema.org/Product"]');
 		const waitForSrc = (timeoutms, elem) => new Promise((r, j)=>{
 			const check = () => {
 			  if(!elem.src.startsWith('data')) 
@@ -35,7 +36,7 @@ export default class RecentlyViewedPlugin extends Plugin {
 			}
 			setTimeout(check, 100)
 		  })
-		if (productMain.length > 0) {
+		if (productMain.length > 0 || productMainCMS) {
 			this.updateView();
 			const name = document.querySelector('.product-detail-name').innerText;
 			let imageURL = ""; 

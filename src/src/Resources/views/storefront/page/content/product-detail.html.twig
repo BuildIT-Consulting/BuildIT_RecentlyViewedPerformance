@@ -1,0 +1,6 @@
+{% sw_extends '@Storefront/storefront/page/content/product-detail.html.twig' %}
+
+{% block cms_content %}
+    {{parent()}}
+    {% sw_include '@Storefront/storefront/component/recently-viewed.html.twig' %}
+{% endblock %}
